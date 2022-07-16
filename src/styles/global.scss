@@ -1,0 +1,51 @@
+@import "variables.scss";
+
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: black;
+  border-radius: 15px;
+}
+::selection {
+  color: #fff;
+  background-color: #000;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  font-style: normal;
+  overflow-x: hidden;
+
+  &.menu-opened {
+    position: fixed;
+    overflow: hidden;
+  }
+}
+
+.container {
+  margin: 0 auto;
+  text-align: center;
+  max-width: $containerWidth;
+  padding: 0 15px;
+  overflow: hidden;
+}
+
+.link-hover {
+  position: relative;
+  cursor: pointer;
+  &::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+    height: 1px;
+    width: 0;
+    background-color: #383938;
+    transition: width 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  }
+  &:hover::after {
+    width: 100%;
+  }
+}
